@@ -45,6 +45,10 @@ const CatImage = styled('img')({
     borderRadius: '10px'
 });
 
+/**
+ * Component displayed as a single cat page with image and specific data about the cat/breed
+ * Data displayed in the component depends on the breed id passed in the router params
+ */
 export const SingleCatPage = () => {
     const { id } = useParams();
     const [catInfo, setCatInfo] = useState<SingleCat | null>(null);
@@ -61,6 +65,7 @@ export const SingleCatPage = () => {
 
     const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
         if (reason === 'clickaway') {
+            // assume we don't want to close the notification on random click outside of alert window
             return;
         }
 

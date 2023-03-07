@@ -4,16 +4,26 @@ import { SingleCat, Breed } from '../../constants/types';
 import { BREED_KEY } from '../../constants/localStorageKeys';
 import { API_URL } from '../../constants/url';
 import { axiosGet } from '../../utils/fetch';
-import { Index } from '../notification';
+import { Notification } from '../notification/notification';
 
+/**
+ * Context store for breeds
+ */
 export const BreedsContext = createContext<{
     breeds: Breed[], currentBreed?: string, setCurrentBreed: Dispatch<string>
 }>({ breeds: [], currentBreed: '', setCurrentBreed: () => {} });
 
+/**
+ * Context store for cats of specific breed
+ */
 export const CatsContext = createContext<{
     cats: SingleCat[], page: number, setPage: Dispatch<number>, isLastPage: boolean
 }>({ cats: [], page: 0, setPage: () => {}, isLastPage: false });
 
+/**
+ * Breeds context store implementation
+ * @param children - child components passed down the tree
+ */
 export function BreedsContextProvider({ children }: any) {
     const [breeds, setBreeds] = useState<Breed[]>([]);
     const [currentBreed, setCurrentBreed] = useState<string>();
@@ -37,7 +47,7 @@ export function BreedsContextProvider({ children }: any) {
         <BreedsContext.Provider
             value={{ breeds, currentBreed, setCurrentBreed }}
         >
-            <Index
+            <Notification
                 open={open}
                 success={success}
                 setOpen={setOpen}
@@ -49,6 +59,10 @@ export function BreedsContextProvider({ children }: any) {
     );
 }
 
+/**
+ * Cats context store implementation
+ * @param children - child components passed down the tree
+ */
 export function CatsContextProvider({ children }: any) {
     const [cats, setCats] = useState<SingleCat[]>([]);
     const [page, setPage] = useState<number>(0);
@@ -56,6 +70,7 @@ export function CatsContextProvider({ children }: any) {
     const [success, setSuccess] = useState<boolean>(false);
     const [isLastPage, setIsLastPage] = useState<boolean>(false);
     const breedContext = useContext(BreedsContext);
+
     const fetchData = async (isNewBreed?: boolean) => {
         if (!breedContext.currentBreed) {
             setCats([]);
@@ -96,7 +111,7 @@ export function CatsContextProvider({ children }: any) {
         <CatsContext.Provider
             value={{ cats, page, setPage, isLastPage }}
         >
-            <Index
+            <Notification
                 open={open}
                 success={success}
                 setOpen={setOpen}

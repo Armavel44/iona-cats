@@ -8,6 +8,9 @@ const DefaultButton = styled(MuiButton)({
     marginBottom: '10px'
 });
 
+/**
+ * Default button for use in the application
+ */
 export const Button = (props) => {
     return (
         <DefaultButton {...props} />

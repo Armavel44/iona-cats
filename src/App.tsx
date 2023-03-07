@@ -8,6 +8,9 @@ import { HomePage } from './components/homepage';
 import { SingleCatPage } from './components/single-cat-page';
 import { BreedsContextProvider, CatsContextProvider } from './components/context-provider';
 
+/**
+ * app router
+ */
 const router = createBrowserRouter([
     {
         path: '/',
@@ -19,6 +22,9 @@ const router = createBrowserRouter([
     }
 ]);
 
+/**
+ * entry point for the application
+ */
 function App() {
   return (
     <div className="App">

@@ -9,6 +9,7 @@ import { styled } from '@mui/material/styles';
 import { BreedsContext, CatsContext } from '../context-provider';
 import { CatsList } from './catsList';
 
+// size properties for select menu items
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
@@ -30,6 +31,9 @@ const Container = styled(Grid)({
     margin: 'auto'
 });
 
+/**
+ * Component displayed as a homepage with breed selector and list of cats images
+ */
 export const HomePage = () => {
     const breedsContext = useContext(BreedsContext);
     const catsContext = useContext(CatsContext);

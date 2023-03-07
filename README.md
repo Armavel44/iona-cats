@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# IONA Cat browser
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Application for browsing various cat breeds and its species.\
+Consists of two pages: Homepage with breed select and Single cat page with specific data
+about the breed and a link to wikipedia to read more about it.
 
 ## Available Scripts
 
@@ -29,6 +31,11 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### `npm lint`
+
+Runs the linter configuration for all project files.\
+If run with the :fix option will also fix all minor linter errors.
+
 ### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
@@ -39,8 +46,3 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).

@@ -10,7 +10,15 @@ interface NotificationProps {
     failureMessage: string;
 }
 
-export const Index = ({ open, success, setOpen, successMessage, failureMessage }: NotificationProps) => {
+/**
+ * Default notification component for use everywhere in the app
+ * @param open - open state of the notification popup
+ * @param success - type of notification (error or success)
+ * @param setOpen - dispatcher for changing the open state of the popup
+ * @param successMessage - text to display for successful notifications
+ * @param failureMessage - text to display for failed notifications
+ */
+export const Notification = ({ open, success, setOpen, successMessage, failureMessage }: NotificationProps) => {
     const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
         if (reason === 'clickaway') {
             return;

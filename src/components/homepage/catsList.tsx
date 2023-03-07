@@ -11,7 +11,11 @@ interface CatsListProps {
     cats: SingleCat[];
 }
 
-export const CatsList = (props: CatsListProps) => {
+/**
+ * Component to display image grid with cats of specific breed
+ * @param cats - array with images of the cats
+ */
+export const CatsList = ({ cats }: CatsListProps) => {
     const catsContext = useContext(CatsContext);
     const loadMoreCats = () => {
         catsContext.setPage(catsContext.page + 1);
@@ -19,7 +23,7 @@ export const CatsList = (props: CatsListProps) => {
     return (
         <>
             <ImageList cols={3} rowHeight="auto" gap={30}>
-                {props.cats.map(cat => (
+                {cats.map(cat => (
                     <ImageListItem key={cat.id}>
                         <img src={cat.url} alt={cat.id}/>
                         <Button variant="contained" href={`/${cat.id}`} endIcon={<InfoIcon/>}>
@@ -28,6 +32,7 @@ export const CatsList = (props: CatsListProps) => {
                     </ImageListItem>
                 ))}
             </ImageList>
+            {/*Hide "Load more" button for the "last" page*/}
             {!catsContext.isLastPage && <Grid item xs={12} justifyContent="flex-start">
                 <Button variant="contained" onClick={loadMoreCats}>Load more</Button>
             </Grid>}
