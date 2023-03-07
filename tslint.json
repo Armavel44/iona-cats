@@ -1,0 +1,15 @@
+{
+  "extends": ["tslint:recommended"],
+  "rules": {
+    "ordered-imports": false,
+    "indent": [true, "spaces", 2],
+    "semicolon": [true, "always", "ignore-interfaces"],
+    "no-console": false,
+    "whitespace": true,
+    "trailing-comma": false,
+    "no-shadowed-variable": false,
+    "no-empty": false,
+    "object-literal-sort-keys": false,
+    "quotemark": [true, "single", "jsx-double"]
+  }
+}

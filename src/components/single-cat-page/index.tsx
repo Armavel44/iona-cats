@@ -8,7 +8,7 @@ import MuiAlert from '@mui/material/Alert';
 import { styled } from '@mui/material/styles';
 import { Button } from '../common/button';
 import { API_URL } from '../../constants/url';
-import { axiosGet } from '../../utils/fetch'
+import { axiosGet } from '../../utils/fetch';
 
 interface SingleCat {
     height: number;
@@ -25,7 +25,7 @@ type Breed = {
     origin: string;
     temperament: string;
     wikipedia_url: string;
-}
+};
 
 const StyledBox = styled(Box)({
     height: '100%'
@@ -35,17 +35,17 @@ const Container = styled(Grid)({
     maxWidth: '1000px',
     margin: 'auto',
     marginTop: '20px'
-})
+});
 
 const LinkedButton = styled('a')({
     textDecoration: 'none',
-})
+});
 
 const CatImage = styled('img')({
     borderRadius: '10px'
-})
+});
 
-export const SingleCatPage = (props) => {
+export const SingleCatPage = () => {
     const { id } = useParams();
     const [catInfo, setCatInfo] = useState<SingleCat | null>(null);
     const [open, setOpen] = useState<boolean>(false);
@@ -56,7 +56,7 @@ export const SingleCatPage = (props) => {
             setCatInfo(data);
         }
         fetchData();
-    }, [])
+    }, []);
     const breed = catInfo?.breeds?.[0] || null;
 
     const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
@@ -104,4 +104,4 @@ export const SingleCatPage = (props) => {
             </Container>
         </StyledBox>
     );
-}
+};

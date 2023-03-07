@@ -1,10 +1,10 @@
-import React, {useContext, useState, useEffect, createContext, Dispatch} from "react";
+import React, {useContext, useState, useEffect, createContext, Dispatch} from 'react';
 import uniqBy from 'lodash/uniqBy';
 import { SingleCat, Breed } from '../../constants/types';
 import { BREED_KEY } from '../../constants/localStorageKeys';
 import { API_URL } from '../../constants/url';
 import { axiosGet } from '../../utils/fetch';
-import { Index } from '../notification'
+import { Index } from '../notification';
 
 export const BreedsContext = createContext<{
     breeds: Breed[], currentBreed?: string, setCurrentBreed: Dispatch<string>
@@ -32,7 +32,7 @@ export function BreedsContextProvider({ children }: any) {
     useEffect(() => {
         if (currentBreed === undefined) return;
         localStorage.setItem(BREED_KEY, currentBreed);
-    }, [currentBreed])
+    }, [currentBreed]);
     return (
         <BreedsContext.Provider
             value={{ breeds, currentBreed, setCurrentBreed }}
@@ -75,7 +75,7 @@ export function CatsContextProvider({ children }: any) {
             }
             setCats(updatedCats);
         }
-    }
+    };
     useEffect(() => {
         if (page === 0) {
             fetchData(true);

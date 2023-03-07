@@ -4,9 +4,9 @@ import Grid from '@mui/material/Grid';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select, {SelectChangeEvent} from '@mui/material/Select';
-import Typography from "@mui/material/Typography";
-import { styled } from '@mui/material/styles'
-import { BreedsContext, CatsContext } from '../context-provider'
+import Typography from '@mui/material/Typography';
+import { styled } from '@mui/material/styles';
+import { BreedsContext, CatsContext } from '../context-provider';
 import { CatsList } from './catsList';
 
 const ITEM_HEIGHT = 48;
@@ -23,19 +23,19 @@ const MenuProps = {
 const BoxContainer = styled(Box)({
     height: '100%',
     marginTop: '10px'
-})
+});
 
 const Container = styled(Grid)({
     maxWidth: '1000px',
     margin: 'auto'
-})
+});
 
 export const HomePage = () => {
     const breedsContext = useContext(BreedsContext);
     const catsContext = useContext(CatsContext);
     const handleSelectChange = (e: SelectChangeEvent) => {
         breedsContext?.setCurrentBreed(e.target.value);
-    }
+    };
 
     return (
         <BoxContainer>
@@ -48,7 +48,7 @@ export const HomePage = () => {
                     <Select
                         id="breed-select"
                         defaultValue=""
-                        value={breedsContext?.currentBreed || ""}
+                        value={breedsContext?.currentBreed || ''}
                         onChange={handleSelectChange}
                         sx={{ minWidth: '240px' }}
                         MenuProps={MenuProps}
@@ -68,4 +68,4 @@ export const HomePage = () => {
             </Container>
         </BoxContainer>
     );
-}
+};

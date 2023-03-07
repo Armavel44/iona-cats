@@ -2,22 +2,22 @@ import React from 'react';
 import {
     createBrowserRouter,
     RouterProvider,
-} from "react-router-dom";
+} from 'react-router-dom';
 import './App.css';
-import { HomePage } from './components/homepage'
-import { SingleCatPage } from './components/single-cat-page'
-import { BreedsContextProvider, CatsContextProvider } from './components/context-provider'
+import { HomePage } from './components/homepage';
+import { SingleCatPage } from './components/single-cat-page';
+import { BreedsContextProvider, CatsContextProvider } from './components/context-provider';
 
 const router = createBrowserRouter([
     {
-        path: "/",
+        path: '/',
         element: <HomePage />
     },
     {
-        path: "/:id",
+        path: '/:id',
         element: <SingleCatPage />
     }
-])
+]);
 
 function App() {
   return (
